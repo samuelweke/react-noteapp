@@ -25,6 +25,11 @@ class App extends Component {
     ]
   };
 
+  addNote = (e) =>{
+      e.preventDefault();
+      console.log('sdafgv');
+  };
+
   deleteBtn = (id) => {
     const notes = this.state.notes.filter((note) => 
       note.id !== id
@@ -38,7 +43,7 @@ class App extends Component {
       <div>
         <Navbar />
         <AddNotes />
-        <Notes notes={this.state.notes} handleDelete={this.deleteBtn} />
+        <Notes notes={this.state.notes} handleDelete={this.deleteBtn} addNote={this.addNote} />
       </div>
     )
   }
