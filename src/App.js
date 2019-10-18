@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Notes from './components/Notes';
+import AddNotes from './components/AddNote';
 import './App.css';
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
     return (
       <div>
         <Navbar />
+        <AddNotes />
         <Notes notes={this.state.notes} handleDelete={this.deleteBtn} />
       </div>
     )
