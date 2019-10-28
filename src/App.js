@@ -8,7 +8,27 @@ import './App.css';
 class App extends Component {
   state = {
     notes: [
+      // {
+      //   id:1,
+      //   title:'A note app',
+      //   body: 'sadjfshbjs fvsbhfbud'
+      // },
+      // {
+      //   id:2,
+      //   title:'Another note app',
+      //   body: 'sadjfshdafsdasfgdfddbjs fvsbhfbud'
+      // },
+      // {
+      //   id:3,
+      //   title:'A different note app',
+      //   body: 'sadsdfgdmlgnkdsjjfshbjs fvsbhfbud'
+      // }
     ]
+  };
+
+  componentDidMount(){
+    const notes = JSON.parse(localStorage.getItem('notes'))
+    this.setState({notes: [notes]})
   };
 
   addNote = (title, body) =>{
@@ -17,7 +37,8 @@ class App extends Component {
         title: title,
         body: body
       }
-      this.setState({notes: [...this.state.notes, notes]})
+      this.setState({notes: [...this.state.notes, notes]});
+      localStorage.setItem('notes', JSON.stringify(notes))
   };
 
   deleteBtn = (id) => {
@@ -32,7 +53,7 @@ class App extends Component {
       <div>
         <Navbar />
         <AddNotes addNote={this.addNote} />
-        <Notes notes={this.state.notes} handleDelete={this.deleteBtn} addNote={this.addNote} />
+        <Notes notes={this.state.notes} getNote={this.getNote} handleDelete={this.deleteBtn} addNote={this.addNote} />
       </div>
     )
   }
