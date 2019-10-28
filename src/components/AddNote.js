@@ -1,17 +1,45 @@
 import React, { Component } from 'react';
 
 class AddNote extends Component {
+    state = {
+        title: '',
+        body: ''
+    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        const {title, body} = this.state;
+        this.props.addNote(title, body);
+        this.setState({ title: '', body: ''});
+    };
+
+    onChange = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    };
+
+
     render() {
         return (
             <div style={addNoteStyle} className="ml-5">
-                <form onSubmit={()=> this.props.addNote(this.props.addNote.e)}>
+                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Title</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Note Title"/>
+                        <input 
+                            name="title" 
+                            value={this.state.title} 
+                            onChange={this.onChange} 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Note Title"
+                        />
                     </div>
                     <div className="form-group">
                         <label>Body</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea 
+                            name="body" 
+                            value={this.state.body} 
+                            onChange={this.onChange} 
+                            className="form-control">
+                        </textarea>
                     </div>
                     <button className="btn btn-success">Save</button>
                 </form>
