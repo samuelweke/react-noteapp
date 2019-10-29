@@ -50,7 +50,10 @@ class App extends Component {
     const notes = this.state.notes.filter((note) => 
       note.id !== id
     )
-    this.setState({notes: notes});
+    localStorage.setItem('notes', JSON.stringify(notes));
+    this.setState({
+      notes: JSON.parse(localStorage.getItem('notes'))
+    });
   };
 
   
