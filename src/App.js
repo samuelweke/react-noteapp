@@ -7,40 +7,26 @@ import './App.css';
 
 class App extends Component {
   state = {
-    notes: [
-      // {
-      //   id:1,
-      //   title:'The boy',
-      //   body: 'There was a boy'
-      // },
-      // {
-      //   id:2,
-      //   title:'Bag',
-      //   body: 'Once upon a time'
-      // },
-      // {
-      //   id:3,
-      //   title:'Quote',
-      //   body: 'As flies to wanton boys'
-      // }
-    ]
+    notes: []
   };
 
   componentDidMount(){
     if(localStorage.getItem('notes') !== null){
-      this.setState({notes:JSON.parse(localStorage.getItem('notes')) })
+      this.setState({ 
+        notes: JSON.parse(localStorage.getItem('notes')) 
+      });
     }
-  }
+  };
   
   addNote = (title, body) =>{
       const notes = {
         id: uuid.v4(),
         title: title,
         body: body
-      }
+      };
+
       this.state.notes.push(notes);
       localStorage.setItem('notes', JSON.stringify(this.state.notes));
-
       this.setState({
         notes: JSON.parse(localStorage.getItem('notes'))
       });
@@ -49,7 +35,7 @@ class App extends Component {
   deleteBtn = (id) => {
     const notes = this.state.notes.filter((note) => 
       note.id !== id
-    )
+    );
     localStorage.setItem('notes', JSON.stringify(notes));
     this.setState({
       notes: JSON.parse(localStorage.getItem('notes'))
@@ -57,13 +43,16 @@ class App extends Component {
   };
 
   
-
   render() {
     return (
-      <div>
+      <div className="App">
         <Navbar />
         <AddNotes addNote={this.addNote} />
-        <Notes notes={this.state.notes} getNote={this.getNote} handleDelete={this.deleteBtn} addNote={this.addNote} />
+        <Notes 
+          notes={this.state.notes}
+          handleDelete={this.deleteBtn}
+          addNote={this.addNote} 
+        />
       </div>
     )
   }
