@@ -10,35 +10,40 @@ class App extends Component {
     notes: [
       // {
       //   id:1,
-      //   title:'A note app',
-      //   body: 'sadjfshbjs fvsbhfbud'
+      //   title:'The boy',
+      //   body: 'There was a boy'
       // },
       // {
       //   id:2,
-      //   title:'Another note app',
-      //   body: 'sadjfshdafsdasfgdfddbjs fvsbhfbud'
+      //   title:'Bag',
+      //   body: 'Once upon a time'
       // },
       // {
       //   id:3,
-      //   title:'A different note app',
-      //   body: 'sadsdfgdmlgnkdsjjfshbjs fvsbhfbud'
+      //   title:'Quote',
+      //   body: 'As flies to wanton boys'
       // }
     ]
   };
 
   componentDidMount(){
-    const notes = JSON.parse(localStorage.getItem('notes'))
-    this.setState({notes: [notes]})
-  };
-
+    if(localStorage.getItem('notes') !== null){
+      this.setState({notes:JSON.parse(localStorage.getItem('notes')) })
+    }
+  }
+  
   addNote = (title, body) =>{
       const notes = {
         id: uuid.v4(),
         title: title,
         body: body
       }
-      this.setState({notes: [...this.state.notes, notes]});
-      localStorage.setItem('notes', JSON.stringify(notes))
+      this.state.notes.push(notes);
+      localStorage.setItem('notes', JSON.stringify(this.state.notes));
+
+      this.setState({
+        notes: JSON.parse(localStorage.getItem('notes'))
+      });
   };
 
   deleteBtn = (id) => {
@@ -47,6 +52,8 @@ class App extends Component {
     )
     this.setState({notes: notes});
   };
+
+  
 
   render() {
     return (
