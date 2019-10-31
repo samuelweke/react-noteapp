@@ -9,7 +9,10 @@ class AddNote extends Component {
         e.preventDefault();
         const {title, body} = this.state;
         this.props.addNote(title, body);
-        this.setState({ title: '', body: ''});
+        this.setState({ 
+            title: '', 
+            body: ''
+        });
     };
 
     onChange = (e) => {
@@ -49,7 +52,7 @@ class AddNote extends Component {
 }
 
 const addNoteStyle = {
-    width: "400px"
+    width: '400px'
 }
 
 export default AddNote

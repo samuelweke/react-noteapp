@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
+import AMOdal from './AModal';
 
-class Navbar extends Component {
+class Navbar extends Component {    
     render(){
         return (
             <React.Fragment>
                 <nav style={navStyle} className="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-between mb-4">
                     <p style={noteStyle}>Notes</p>
-                    <button className="btn btn-light">Take Note</button>
+                    <AMOdal />
                 </nav>
             </React.Fragment>
         )
     }
 };
+
     const navStyle = {
         paddingLeft: '5%',
         paddingRight: '5%'
@@ -23,5 +25,6 @@ class Navbar extends Component {
         fontWeight: 500,
         marginBottom: 0,
     };
+
 
 export default Navbar;
