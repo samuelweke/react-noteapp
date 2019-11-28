@@ -45,11 +45,15 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar addNote={this.addNote}/>
-        <Notes 
-          notes={this.state.notes}
-          handleDelete={this.deleteBtn}
-          addNote={this.addNote} 
-        />
+        <div className="container">
+          <div className="row">
+            <Notes 
+              notes={this.state.notes}
+              handleDelete={this.deleteBtn}
+              addNote={this.addNote} 
+            />
+         </div>
+        </div>
       </div>
     )
   }
