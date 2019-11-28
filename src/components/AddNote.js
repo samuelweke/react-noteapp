@@ -1,58 +1,90 @@
 import React, { Component } from 'react';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 class AddNote extends Component {
-    state = {
-        title: '',
+  state = {
+    show: false,
+    title: '',
+    body: '',
+  };
+  
+  handleClose = () => {
+		this.setState({ show: false });
+	};
+
+	handleShow = () => {
+		this.setState({ show: true });
+  };
+  
+  onSubmit = (e) => {
+    e.preventDefault();
+    const {title, body} = this.state;
+    this.props.addNote(title, body);
+    this.setState({ 
+        title: '', 
         body: ''
-    }
-    onSubmit = (e) => {
-        e.preventDefault();
-        const {title, body} = this.state;
-        this.props.addNote(title, body);
-        this.setState({ 
-            title: '', 
-            body: ''
-        });
-    };
+    });
+  };
 
-    onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    };
+  onChange = (e) => {
+      this.setState({[e.target.name]: e.target.value})
+  };
+  
+  render() { 
+    return ( 
+      <>
+      <button 
+          onClick={this.handleShow}
+          style={btnStyle}
+          className="btn btn-light">
+          Take Note
+      </button>
 
-
-    render() {
-        return (
-            <div style={addNoteStyle} className="ml-5">
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Title</label>
-                        <input 
-                            name="title" 
-                            value={this.state.title} 
-                            onChange={this.onChange} 
-                            type="text" 
-                            className="form-control" 
-                            placeholder="Note Title"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Body</label>
-                        <textarea 
-                            name="body" 
-                            value={this.state.body} 
-                            onChange={this.onChange} 
-                            className="form-control">
-                        </textarea>
-                    </div>
-                    <button className="btn btn-success">Save</button>
-                </form>
-            </div>
-        )
-    }
+      <Modal show={this.state.show} onHide={this.handleClose}>
+        <Form onSubmit={this.onSubmit}>
+          <Modal.Header closeButton>
+            <Modal.Title>Take Note</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Enter Title"
+                name="title" 
+                value={this.state.title} 
+                onChange={this.onChange} /> 
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Body</Form.Label>
+              <Form.Control 
+                as="textarea" 
+                rows="9"
+                name="body" 
+                value={this.state.body} 
+                onChange={this.onChange} />
+            </Form.Group>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Discard
+            </Button>
+            <Button variant="primary" onClick={this.handleClose} type="submit">
+              Save
+            </Button>
+          </Modal.Footer>
+        </Form>
+      </Modal>
+    </>
+     );
+  }
 }
 
-const addNoteStyle = {
-    width: '400px'
-}
+const btnStyle = {
+  fontSize: 18
+};
 
-export default AddNote
+ 
+export default AddNote;
+
+

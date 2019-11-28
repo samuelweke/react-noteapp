@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AMOdal from './AModal';
+import AddNote from './AddNote';
 
 class Navbar extends Component {    
     render(){
@@ -7,7 +7,7 @@ class Navbar extends Component {
             <React.Fragment>
                 <nav style={navStyle} className="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-between mb-4">
                     <p style={noteStyle}>Notes</p>
-                    <AMOdal />
+                    <AddNote addNote={this.props.addNote}/>
                 </nav>
             </React.Fragment>
         )

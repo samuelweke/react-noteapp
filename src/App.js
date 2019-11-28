@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Notes from './components/Notes';
-import AddNotes from './components/AddNote';
 import uuid from 'uuid';
 import './App.css';
 
@@ -42,12 +41,10 @@ class App extends Component {
     });
   };
 
-  
   render() {
     return (
       <div className="App">
-        <Navbar />
-        <AddNotes addNote={this.addNote} />
+        <Navbar addNote={this.addNote}/>
         <Notes 
           notes={this.state.notes}
           handleDelete={this.deleteBtn}
