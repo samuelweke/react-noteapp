@@ -1,3 +1,5 @@
+#### Notes App built with React that uses the Browser LocalStorage to store data.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
