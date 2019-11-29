@@ -1,4 +1,4 @@
-## Notes App built with React that uses the Browser LocalStorage to store data.
+## Notes app built with React that uses the browser localStorage to store data.
 
 The demo for this app can be found here https://react-noteapp.herokuapp.com/
 
