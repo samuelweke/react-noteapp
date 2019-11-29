@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap'
-import { faTrash, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Note extends Component {
     render() {
         return (
             <Col>
-                <div style={noteStyle} className="card mb-3">
+                <div style={noteStyle} className="card mb-4">
                     <div style={cardHeader} className="card-header bg-dark">{this.props.note.title}</div>
                     <div style={cardBody} className="card-body">{this.props.note.body}</div>
                     <div className="d-flex justify-content-flex-end ml-2 mb-2">

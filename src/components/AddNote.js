@@ -37,13 +37,13 @@ class AddNote extends Component {
           onClick={this.handleShow}
           style={btnStyle}
           className="btn btn-light">
-          Take Note
+          Write Note
       </button>
 
       <Modal show={this.state.show} onHide={this.handleClose}>
         <Form onSubmit={this.onSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>Take Note</Modal.Title>
+            <Modal.Title>Note</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group>

@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar addNote={this.addNote}/>
-        <Container>
+        <Container style={{marginTop: '100px'}}>
           <Row>
             <Notes 
               notes={this.state.notes}

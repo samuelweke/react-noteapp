@@ -5,7 +5,7 @@ class Navbar extends Component {
     render(){
         return (
             <React.Fragment>
-                <nav style={navStyle} className="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-between mb-4">
+                <nav style={navStyle} className="navbar fixed-top navbar-expand-md navbar-dark bg-dark d-flex justify-content-between mb-4">
                     <p style={noteStyle}>Notes</p>
                     <AddNote addNote={this.props.addNote}/>
                 </nav>
@@ -21,7 +21,7 @@ class Navbar extends Component {
 
     const noteStyle = {
         color: '#fff',
-        fontSize: 34,
+        fontSize: 38,
         fontWeight: 500,
         marginBottom: 0,
     };
