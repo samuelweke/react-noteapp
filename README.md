@@ -2,7 +2,8 @@
 
 The demo for this app can be found here https://react-noteapp.herokuapp.com/
 
-https://user-images.githubusercontent.com/26222893/69871396-fc9f5300-12b2-11ea-8b64-7f2459756e60.png
+![Screenshot from 2019-11-29 13-59-57](https://user-images.githubusercontent.com/26222893/69873189-ea73e380-12b7-11ea-8261-075f211c9a77.png)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
