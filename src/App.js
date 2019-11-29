@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Notes from './components/Notes';
+import { Container, Row } from 'react-bootstrap'
 import uuid from 'uuid';
 import './App.css';
 
@@ -31,6 +32,10 @@ class App extends Component {
       });
   };
 
+  // editBtn = (id) => {
+  //   console.log(id)
+  // };
+
   deleteBtn = (id) => {
     const notes = this.state.notes.filter((note) => 
       note.id !== id
@@ -45,15 +50,16 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar addNote={this.addNote}/>
-        <div className="container">
-          <div className="row">
+        <Container>
+          <Row>
             <Notes 
               notes={this.state.notes}
               handleDelete={this.deleteBtn}
+              handleEdit={this.editBtn}
               addNote={this.addNote} 
             />
-         </div>
-        </div>
+         </Row>
+        </Container>
       </div>
     )
   }

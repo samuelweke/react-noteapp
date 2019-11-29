@@ -5,7 +5,7 @@ class Notes extends Component {
     render() {
         return (
             this.props.notes.map(note => 
-                <Note key={note.id} note={note} handleDelete={this.props.handleDelete} />
+                <Note key={note.id} note={note} handleEdit={this.props.handleEdit} handleDelete={this.props.handleDelete} />
             )
         )
     }
